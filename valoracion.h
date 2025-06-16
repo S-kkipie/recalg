@@ -9,10 +9,10 @@ class Valoracion {
 public:
     string codigoUsuario;
     string codigoCancion;
-    int valor;
+    float valor;
 
     Valoracion();
-    Valoracion(const string& usuario, const string& cancion, int v);
+    Valoracion(const string& usuario, const string& cancion, float v);
 
     bool operator<(const Valoracion& other) const;
     bool operator<=(const Valoracion& other) const;

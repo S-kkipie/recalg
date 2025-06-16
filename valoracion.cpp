@@ -2,7 +2,7 @@
 
 Valoracion::Valoracion() : codigoUsuario(""), codigoCancion(""), valor(0) {}
 
-Valoracion::Valoracion(const std::string& usuario, const std::string& cancion, int v)
+Valoracion::Valoracion(const std::string& usuario, const std::string& cancion, float v)
     : codigoUsuario(usuario), codigoCancion(cancion), valor(v) {}
 
 bool Valoracion::operator<(const Valoracion& other) const {
