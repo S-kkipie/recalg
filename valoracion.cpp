@@ -22,6 +22,7 @@ bool Valoracion::operator>(const Valoracion &other) const
         return codigoUsuario > other.codigoUsuario;
     return codigoCancion > other.codigoCancion;
 }
+
 bool Valoracion::operator<=(const Valoracion &other) const
 {
     return *this < other || valor == other.valor;

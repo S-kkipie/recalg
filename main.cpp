@@ -33,9 +33,9 @@ int mainMenu()
 
 int main()
 {
-    BPlusTree<Valoracion> tree(100);
-    BPlusTree<ValoracionPtrPorUsuario> treePorUsuario(100);
-    BPlusTree<ValoracionPtrPorCancion> treePorCancion(100);
+    BPlusTree<Valoracion> tree(50);
+    BPlusTree<ValoracionPtrPorUsuario> treePorUsuario(50);
+    BPlusTree<ValoracionPtrPorCancion> treePorCancion(50);
 
     string n;
     cout << "Ingrese el nombre del archivo: ";
@@ -163,7 +163,7 @@ int main()
             cout << "Opción inválida." << endl;
             break;
         }
-    } while (opcion != 4);
+    } while (opcion != 5);
 }
 
 void topPUsersNearKUser(string kUser, int p, BPlusTree<ValoracionPtrPorUsuario> &treePorUsuario, BPlusTree<ValoracionPtrPorCancion> &treePorCancion, string *resultUsers)
@@ -377,7 +377,7 @@ void recommendNSongsToKUser(int n, string kUser, BPlusTree<ValoracionPtrPorUsuar
         delete[] results;
 
         Valoracion *resultTopSongs = new Valoracion[n];
-        topNSongsWithoutCustomVal(n, songsUsuario, resultTopSongs, 4.5f, 5.0f);
+        topNSongsWithoutCustomVal(n, songsUsuario, resultTopSongs, 5.0f, 5.0f);
 
         for (int j = 0; j < n && totalCount < n; ++j)
         {
