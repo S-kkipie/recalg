@@ -83,6 +83,10 @@ public:
             return nullptr;
         }
     }
+
+
+
+    
     Node<T>* BPlusTreeRangeSearch(Node<T>* node, T key){
         if(node == nullptr) { // if root is null, return nullptr
             return nullptr;
@@ -105,6 +109,9 @@ public:
             return cursor;
         }
     }
+
+
+
     int range_search(T start, T end, T* result_data, int arr_length) {
         int index=0;
 
@@ -738,6 +745,25 @@ public:
             return;
         }
     }
+
+    // Método para recorrer todos los elementos hoja y aplicar una función
+    template<typename Func>
+    void for_each(Func f) {
+        if (!root) return;
+        // Buscar la hoja más a la izquierda
+        Node<T>* cursor = root;
+        while (!cursor->is_leaf) {
+            cursor = cursor->children[0];
+        }
+        // Recorrer todas las hojas
+        while (cursor) {
+            for (int i = 0; i < cursor->size; ++i) {
+                f(cursor->item[i]); // Cambia a pasar referencia
+            }
+            cursor = cursor->children[cursor->size];
+        }
+    }
+
 
     void clear(Node<T>* cursor){
         if(cursor != nullptr){
